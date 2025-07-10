@@ -1,0 +1,88 @@
+/* Reutilizamos las mismas variables globales de la página principal */
+:root {
+    --color-fondo-principal: rgb(96, 20, 6);
+    --color-texto-claro: rgb(234, 228, 204);
+    --fuente-titulos-serif: 'Cormorant Garamond', serif;
+    --fuente-parrafos-sans: 'Lato', sans-serif;
+}
+
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: var(--fuente-parrafos-sans);
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+}
+
+/* Contenedor principal a pantalla completa y centrado */
+.gracias-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.mensaje h1 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.mensaje p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 50px;
+}
+
+/* Contenedor de la cuenta atrás */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Estilo para cada bloque (Días, Horas, etc.) */
+.countdown-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.countdown-number {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.countdown-label {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* Estilos para móvil */
+@media (max-width: 768px) {
+    .mensaje h1 {
+        font-size: 2.2rem;
+    }
+    .mensaje p {
+        font-size: 1rem;
+    }
+    #countdown {
+        gap: 20px;
+    }
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra & Alex - Nuestra Boda</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+</head>
+<body>
+    <main class="gracias-container">
+        <div class="mensaje">
+            <h1>¡Gracias por tu confirmación!</h1>
+            <p>Ya solo queda esperar el gran día. ¡Nos vemos muy pronto!</p>
+        </div>
+
+        <div id="countdown">
+            <div class="countdown-box">
+                <span id="days" class="countdown-number">0</span>
+                <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-box">
+                <span id="hours" class="countdown-number">0</span>
+                <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes" class="countdown-number">0</span>
+                <span class="countdown-label">Minutos</span>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds" class="countdown-number">0</span>
+                <span class="countdown-label">Segundos</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        /**
+         * Actualiza la cuenta atrás mostrando los días, horas, minutos y segundos
+         * restantes hasta la fecha de la boda.
+         */
+        function updateCountdown() {
+            // NOTA: He actualizado la fecha a la que aparece en la sección "EL EVENTO" de tu diseño.
+            const weddingDate = new Date('2025-12-06T12:00:00'); // 6 de Diciembre de 2025 a las 12:00
+            const now = new Date();
+            const difference = weddingDate.getTime() - now.getTime();
+
+            if (difference <= 0) {
+                // Si la fecha ya ha pasado, detenemos el intervalo y mostramos un mensaje.
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<h2>¡El gran día ha llegado!</h2>';
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Rellenamos los elementos del HTML con los valores calculados
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        // Llamamos a la función una vez al cargar la página para que no haya un retraso de 1 segundo
+        updateCountdown();
+
+        // Creamos un intervalo para que la función se ejecute cada segundo (1000 milisegundos)
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
