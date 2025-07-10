@@ -273,3 +273,82 @@ body {
         font-size: 2.2rem;
     }
 }
+
+/* ========= SECCIÓN 4: INFORMACIÓN ========= */
+#informacion {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    flex-direction: column;
+    padding: 8vh 0;
+}
+
+.info-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 40px;
+    text-align: center;
+}
+
+#informacion h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    font-family: var(--fuente-decorativa-script);
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+}
+
+.info-columnas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea las columnas por la parte superior */
+    gap: 40px;
+    width: 100%;
+}
+
+.info-columna {
+    flex: 1; /* Cada columna ocupa el mismo espacio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-columna img {
+    height: 100px; /* Damos una altura fija a los iconos para que se vean iguales */
+    margin-bottom: 20px;
+}
+
+.info-columna h3 {
+    font-family: var(--fuente-decorativa-script);
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+}
+
+.info-columna p {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+/* ... reglas anteriores para móvil ... */
+
+    .info-columnas {
+        flex-direction: column; /* Apilamos las columnas en móvil */
+        gap: 50px; /* Aumentamos el espacio entre ellas */
+    }
+
+    #informacion h2 {
+        font-size: 2.5rem;
+    }
+
+    .subtitulo {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+}
