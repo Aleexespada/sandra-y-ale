@@ -1,1 +1,85 @@
+/* ========= ESTILOS GENERALES ========= */
+body {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif; /* Tipografía por defecto */
+    background-color: #3b1d1a; /* Color de fondo general para el resto de la página */
+}
 
+/* ========= SECCIÓN 1: CABECERA (CORREGIDO) ========= */
+.hero {
+    height: 100vh;
+    background-image: url('assets/imagenes/flores_1.jpeg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* CAMBIO: Color de texto cambiado a negro */
+    color: #333; /* Un negro no tan puro, queda más suave */
+}
+
+/* CAMBIO: Capa semitransparente CLARA sobre la imagen */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* CAMBIO: Fondo blanco con 75% de opacidad. Puedes ajustar el 0.75 */
+    background-color: rgba(255, 255, 255, 0.75); 
+}
+
+/* Contenedor del texto principal (sin cambios) */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo para "Sandra & Alex" (sin cambios) */
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Estilo para "are getting married" (sin cambios) */
+.hero-content p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Estilo para el hashtag #S&A */
+.hashtag {
+    position: absolute;
+    bottom: 30px; /* Un poco más de espacio desde abajo */
+    right: 40px;  /* Un poco más de espacio desde la derecha */
+    font-family: 'Cormorant Garamond', serif;
+    /* CAMBIO: Tamaño de fuente aumentado */
+    font-size: 2.2rem; 
+    font-weight: 700;
+    z-index: 1;
+}
+
+/* ---- Media Queries para Móviles ---- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 2rem;
+    }
+
+    .hashtag {
+        /* CAMBIO: Tamaño ajustado también para móvil */
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
