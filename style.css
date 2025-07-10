@@ -152,8 +152,13 @@ body {
 
     .hashtag {
         font-size: 1.8rem;
-        bottom: 20px;
         right: 20px;
+
+        /* CORRECCIÓN: Aplicamos la misma lógica del área segura aquí */
+        /* Fallback para navegadores antiguos en móvil */
+        bottom: 20px;
+        /* Sumamos el área segura a la base de 20px para la vista móvil */
+        bottom: calc(20px + env(safe-area-inset-bottom));
     }
 
     #nos-casamos {
