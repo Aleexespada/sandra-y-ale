@@ -177,11 +177,11 @@ body {
     }
 }
 
-/* ========= SECCIÓN 3: NUESTRA BODA ========= */
+/* ========= SECCIÓN 3: NUESTRA BODA (CORREGIDO) ========= */
 #nuestra-boda {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
-    flex-direction: column; /* Apila el título sobre el contenido */
+    flex-direction: column;
     padding: 8vh 0;
 }
 
@@ -197,7 +197,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 40px;
-    letter-spacing: 2px; /* Un poco de espacio entre letras */
+    letter-spacing: 2px;
 }
 
 .boda-content {
@@ -210,11 +210,11 @@ body {
 /* Contenedor del icono */
 .boda-icono {
     flex-basis: 40%;
-    max-width: 300px; /* Tamaño máximo del icono */
+    max-width: 280px; /* Ajustamos un poco el tamaño máximo */
 }
 
-/* El SVG heredará el color de texto 'currentColor' que definimos en el código SVG */
-.boda-icono svg {
+/* CAMBIO: Eliminamos la regla para SVG y nos aseguramos que la imagen se ajuste */
+.boda-icono img {
     width: 100%;
     height: auto;
 }
@@ -222,16 +222,31 @@ body {
 /* Lista de información */
 .boda-info {
     flex-basis: 60%;
-    list-style: none; /* Quitamos los puntos de la lista */
+    list-style: none;
     padding: 0;
     margin: 0;
-    text-align: left; /* Alineamos el texto de la lista a la izquierda */
+    text-align: left;
 }
 
+/* CAMBIO: Cada elemento de la lista ahora es un contenedor flex */
 .boda-info li {
+    display: flex;
+    flex-direction: column; /* Apila el título y el detalle */
+    margin-bottom: 30px;
+}
+
+/* CAMBIO: Estilo para el título de cada elemento de la lista */
+.info-titulo {
     font-family: var(--fuente-decorativa-script);
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+/* CAMBIO: Estilo para el texto de detalle */
+.info-detalle {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 1rem;
+    margin-top: 5px; /* Pequeño espacio entre título y detalle */
 }
 
 /* ---- Ajustes para esta sección en móvil ---- */
@@ -239,22 +254,23 @@ body {
 
 @media (max-width: 768px) {
     /* ... reglas anteriores para móvil ... */
-
+    
     .boda-content {
-        flex-direction: column; /* Apilamos icono y lista en móvil */
-        gap: 20px;
+        flex-direction: column;
+        gap: 40px;
     }
     
     .boda-info {
-        text-align: center; /* Centramos la lista en móvil */
+        text-align: center;
+        width: 100%;
     }
 
+    /* CAMBIO: Centramos el contenido de cada 'li' en móvil */
     .boda-info li {
-        font-size: 2rem;
+        align-items: center;
     }
 
-    #nuestra-boda h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
+    .info-titulo {
+        font-size: 2.2rem;
     }
 }
