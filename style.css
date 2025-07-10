@@ -335,7 +335,7 @@ body {
     font-family: var(--fuente-parrafos-sans);
     font-size: 0.9rem;
     line-height: 1.5;
-    padding: 0 4px;
+    padding: 0 4px!important;
 }
 
 @media (max-width: 768px) {
@@ -353,5 +353,61 @@ body {
     .subtitulo {
         font-size: 1.5rem;
         margin-bottom: 40px;
+    }
+}
+
+/* ========= SECCIÓN 6: PREGUNTAS ========= */
+#preguntas {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    flex-direction: column;
+    padding: 15vh 0;
+}
+
+.preguntas-container {
+    width: 100%;
+    max-width: 800px; /* Un poco más estrecho para facilitar la lectura */
+    padding: 0 40px;
+    text-align: center;
+}
+
+#preguntas h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.qa-item {
+    margin-bottom: 40px; /* Espacio entre cada pregunta y respuesta */
+}
+
+.qa-item:last-child {
+    margin-bottom: 0; /* Quitamos el margen a la última pregunta */
+}
+
+.qa-item h3 {
+    font-family: var(--fuente-decorativa-script);
+    font-size: 2.2rem;
+    margin: 0 0 10px 0;
+}
+
+.qa-item p {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9; /* Hacemos el texto de respuesta un poco más sutil */
+}
+
+@media (max-width: 768px) {
+/* ... reglas anteriores para móvil ... */
+
+    #preguntas h2 {
+        font-size: 2.5rem;
+    }
+
+    .qa-item h3 {
+        font-size: 2rem;
     }
 }
