@@ -1,0 +1,36 @@
+/* ========= VARIABLES GLOBALES DE DISEÑO ========= */
+:root {
+    /* --- Paleta de Colores --- */
+    --color-fondo-principal: rgb(96, 20, 6);
+    --color-texto-claro: rgb(234, 228, 204);
+    --color-texto-oscuro: #333;
+    --color-blanco-puro: #fff;
+    --color-negro-transparente: rgba(0, 0, 0, 0.4);
+    --color-blanco-transparente: rgba(255, 255, 255, 0.75);
+
+    /* --- Tipografías --- */
+    --fuente-titulos-serif: 'Cormorant Garamond', serif;
+    --fuente-parrafos-sans: 'Lato', sans-serif;
+    --fuente-decorativa-script: 'Great Vibes', cursive;
+
+    /* --- Tamaño tipografías --- */
+    --size-titulos: 3rem;
+    --size-subtitulos: 2rem;
+    --size-text: 1rem;
+}
+
+/* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fuente-titulos-serif); /* Fuente por defecto */
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    /*height: 100vh;*/
+    padding: 0 10px;
+}
