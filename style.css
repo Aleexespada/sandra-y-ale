@@ -80,12 +80,19 @@ body {
 
 .hashtag {
     position: absolute;
-    bottom: 30px;
-    right: 40px;
     font-family: var(--fuente-titulos-serif);
     font-size: 2.2rem;
     font-weight: 700;
     z-index: 1;
+
+    /* CAMBIO: Posicionamiento inteligente con áreas seguras */
+    right: 40px;
+    
+    /* Fallback para navegadores antiguos */
+    bottom: 30px; 
+    
+    /* Le decimos que a los 30px de base, le sume el alto de la barra de navegación */
+    bottom: calc(30px + env(safe-area-inset-bottom));
 }
 
 /* ========= SECCIÓN 2: ¡NOS CASAMOS! ========= */
