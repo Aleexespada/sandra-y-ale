@@ -356,6 +356,81 @@ body {
     }
 }
 
+/* ========= SECCIÓN 5: EL EVENTO ========= */
+#evento {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    flex-direction: column;
+    padding: 15vh 0;
+}
+
+.evento-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 40px;
+}
+
+#evento h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.evento-fecha {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 1.1rem;
+    text-align: left;
+    margin-bottom: 40px;
+    padding-left: 10%; /* Empuja la fecha un poco a la derecha */
+}
+
+/* Contenedor para el horario */
+.timeline {
+    width: 100%;
+    max-width: 500px; /* Ancho del bloque del horario */
+    margin: 0 auto; /* Centra el bloque del horario en el contenedor */
+}
+
+.timeline-item {
+    display: grid;
+    /* Dos columnas: la de la hora y la de la descripción */
+    grid-template-columns: 1fr 2fr;
+    gap: 20px; /* El espacio central que se alinea */
+    margin-bottom: 15px;
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 1.1rem;
+}
+
+.timeline-hora {
+    font-weight: 700; /* Hora en negrita */
+    text-align: right; /* Alineamos la hora a la derecha */
+}
+
+.timeline-descripcion {
+    text-align: left; /* Alineamos la descripción a la izquierda */
+}
+
+@media (max-width: 768px) {
+    /* ... reglas anteriores para móvil ... */
+
+    #evento h2 {
+        font-size: 2.5rem;
+    }
+
+    .evento-fecha {
+        text-align: center; /* En móvil, centramos la fecha */
+        padding-left: 0;
+    }
+
+    .timeline-item {
+        /* Hacemos un poco más pequeña la letra en móvil */
+        font-size: 1rem;
+    }
+}
+
 /* ========= SECCIÓN 6: PREGUNTAS ========= */
 #preguntas {
     background-color: var(--color-fondo-principal);
@@ -367,7 +442,6 @@ body {
 .preguntas-container {
     width: 100%;
     max-width: 800px; /* Un poco más estrecho para facilitar la lectura */
-    padding: 0 40px;
     text-align: center;
 }
 
