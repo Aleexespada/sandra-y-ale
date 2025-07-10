@@ -40,6 +40,20 @@ body {
     text-align: left;
 }
 
+#form-section h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: var(--size-titulos);
+    font-weight: 400; /* Un peso más fino como en la imagen */
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+#form-section p {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: var(--size-text);
+    line-height: 1.7;
+}
+
 label {
     display: block;
     margin-bottom: 0.3rem;
@@ -75,10 +89,6 @@ button {
     cursor: pointer;
     transition: background 0.3s ease;
     box-sizing: border-box;
-}
-
-button:hover {
-    background-color: var(--secondary-color);
 }
 
 .hidden {
