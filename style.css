@@ -176,3 +176,85 @@ body {
         font-size: 3rem;
     }
 }
+
+/* ========= SECCIÓN 3: NUESTRA BODA ========= */
+#nuestra-boda {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    flex-direction: column; /* Apila el título sobre el contenido */
+    padding: 8vh 0;
+}
+
+.boda-container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 40px;
+    text-align: center;
+}
+
+#nuestra-boda h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 2px; /* Un poco de espacio entre letras */
+}
+
+.boda-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* Contenedor del icono */
+.boda-icono {
+    flex-basis: 40%;
+    max-width: 300px; /* Tamaño máximo del icono */
+}
+
+/* El SVG heredará el color de texto 'currentColor' que definimos en el código SVG */
+.boda-icono svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Lista de información */
+.boda-info {
+    flex-basis: 60%;
+    list-style: none; /* Quitamos los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Alineamos el texto de la lista a la izquierda */
+}
+
+.boda-info li {
+    font-family: var(--fuente-decorativa-script);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* ---- Ajustes para esta sección en móvil ---- */
+/* Añade esto DENTRO de tu bloque @media (max-width: 768px) */
+
+@media (max-width: 768px) {
+    /* ... reglas anteriores para móvil ... */
+
+    .boda-content {
+        flex-direction: column; /* Apilamos icono y lista en móvil */
+        gap: 20px;
+    }
+    
+    .boda-info {
+        text-align: center; /* Centramos la lista en móvil */
+    }
+
+    .boda-info li {
+        font-size: 2rem;
+    }
+
+    #nuestra-boda h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+}
