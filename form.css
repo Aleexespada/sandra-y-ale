@@ -17,15 +17,6 @@
     --size-titulos: 3rem;
     --size-subtitulos: 2rem;
     --size-text: 1rem;
-
-
-    --primary-color: #a1645e; /* Color principal (botones, algunos títulos) */
-    --secondary-color: #8b544e; /* Color secundario (hover de botones) */
-    --accent-color: #fdf6f0; /* Color de fondo principal */
-    --background-light: #fffaf6; /* Color de fondo de contenedores */
-    --text-primary: #40322b; /* Color de texto principal */
-    --text-secondary: #776b63; /* Color de texto secundario (placeholders) */
-    --border-color: #d9cfc5; /* Color de bordes */
 }
 
 /* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
@@ -60,14 +51,14 @@ input[type="text"],
 input[type="email"] {
     width: calc(100% - 0px);
     padding: 0.5rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--color-texto-oscuro);
     border-radius: 6px;
     font-size: 1rem;
     box-sizing: border-box;
 }
 
 input::placeholder {
-    color: var(--text-secondary);
+    color: var(--color-texto-oscuro);
     font-style: italic;
 }
 
@@ -75,7 +66,9 @@ button {
     position: relative;
     display: block;
     width: 100%;
-    background-color: var(--primary-color);
+    border: 3px solid var(--color-texto-claro);
+    background-color: var(--color-texto-claro);
+    color: var(--color-fondo-principal);
     color: white;
     padding: 0.75rem;
     font-size: 1rem;
@@ -108,7 +101,6 @@ button.loading .btn-spinner {
     border: 3px solid var(--color-texto-claro);
     background-color: var(--color-texto-claro);
     color: var(--color-fondo-principal);
-    border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
 
