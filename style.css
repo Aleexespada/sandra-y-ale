@@ -117,3 +117,78 @@ body {
         right: 20px;
     }
 }
+
+
+/* ========= SECCIÓN 2: ¡NOS CASAMOS! ========= */
+#nos-casamos {
+    /* Colores especificados */
+    background-color: rgb(96, 20, 6);
+    color: rgb(234, 228, 204);
+    
+    /* Para alinear el contenido arriba en lugar de al centro en móvil */
+    align-items: flex-start;
+    padding-top: 5vh; /* Pequeño margen superior */
+}
+
+/* Contenedor principal para las dos columnas */
+.nos-casamos-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente las columnas */
+    gap: 50px; /* Espacio entre el texto y la imagen */
+    width: 100%;
+    max-width: 1100px; /* Ancho máximo del contenido */
+    padding: 0 40px; /* Espaciado lateral */
+}
+
+/* Columna de texto */
+.text-content {
+    flex-basis: 55%; /* La columna de texto ocupa el 55% del espacio */
+}
+
+#nos-casamos h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 0.9; /* Reduce el espacio entre "NOS" y "CASAMOS" */
+    margin-bottom: 25px;
+}
+
+#nos-casamos p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Columna de imagen */
+.image-content {
+    flex-basis: 45%; /* La columna de imagen ocupa el 45% */
+}
+
+.image-content img {
+    width: 100%; /* La imagen se ajusta a su contenedor */
+    display: block;
+    
+    /* Estilos para que parezca de la captura */
+    filter: grayscale(100%); /* Efecto blanco y negro */
+    border: 8px solid white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Media Queries para Móviles ---- */
+@media (max-width: 768px) {
+    #nos-casamos {
+        /* En móvil, permitimos scroll si el contenido es muy largo */
+        overflow-y: auto; 
+        padding-top: 10vh; /* Más espacio superior en móvil */
+    }
+
+    .nos-casamos-container {
+        flex-direction: column; /* Apila las columnas una sobre otra */
+        text-align: center;
+        gap: 30px;
+    }
+
+    #nos-casamos h2 {
+        font-size: 3rem;
+    }
+}
