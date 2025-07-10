@@ -32,7 +32,6 @@ body {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     /*height: 100vh;*/
-    padding: 0 10px;
 }
 
 .full-screen-section {
@@ -105,7 +104,7 @@ body {
 #nos-casamos {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
-    padding: 8vh 0;
+    padding: 8vh 10px;
 }
 
 .nos-casamos-container {
@@ -163,10 +162,6 @@ body {
         bottom: 40px; /* 40px desde el nuevo borde con padding */
     }
 
-    #nos-casamos {
-        padding: 10vh 0;
-    }
-
     .nos-casamos-container {
         flex-direction: column;
         text-align: center;
@@ -179,7 +174,7 @@ body {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
     flex-direction: column;
-    padding: 8vh 0;
+    padding: 8vh 10px;
 }
 
 .boda-container {
@@ -276,8 +271,7 @@ body {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
     flex-direction: column;
-    /* CAMBIO: Aumentamos el padding vertical para dar más espacio */
-    padding: 15vh 0;
+    padding: 8vh 10px;
 }
 
 .info-container {
@@ -354,7 +348,7 @@ body {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
     flex-direction: column;
-    padding: 15vh 0;
+    padding: 8vh 10px;
 }
 
 .evento-container {
@@ -424,7 +418,7 @@ body {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
     flex-direction: column;
-    padding: 15vh 0;
+    padding: 8vh 10px;
 }
 
 .preguntas-container {
@@ -475,13 +469,12 @@ body {
     background-color: var(--color-fondo-principal);
     color: var(--color-texto-claro);
     flex-direction: column;
-    padding: 15vh 0;
+    padding: 8vh 10px;
 }
 
 .contacto-container {
     width: 100%;
     max-width: 800px;
-    padding: 0 40px;
     text-align: center;
 }
 
