@@ -286,7 +286,6 @@ body {
 .info-container {
     width: 100%;
     max-width: 1100px;
-    margin: 0 40px;
     text-align: center;
 }
 
@@ -296,12 +295,13 @@ body {
     font-weight: 700;
     margin: 0;
     letter-spacing: 2px;
+    padding: 0 8px;
 }
 
 .subtitulo {
     font-family: var(--fuente-decorativa-script);
     font-size: 1.8rem;
-    margin: 10px 0 60px 0;
+    margin: 7px 0 60px 0;
 }
 
 .info-columnas {
@@ -335,6 +335,7 @@ body {
     font-family: var(--fuente-parrafos-sans);
     font-size: 0.9rem;
     line-height: 1.5;
+    padding: 0 4px;
 }
 
 @media (max-width: 768px) {
