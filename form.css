@@ -42,20 +42,21 @@ body {
 
 #form-section {
     text-align: center;
+
 }
 
 #form-section h2 {
     font-family: var(--fuente-titulos-serif);
     font-size: var(--size-titulos);
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
 }
 
 #form-section p {
     font-family: var(--fuente-parrafos-sans);
     font-size: var(--size-text);
-    line-height: 1.7;
+    line-height: var(--size-text);
 }
 
 label {
@@ -86,10 +87,8 @@ button {
     border: 3px solid var(--color-texto-claro);
     background-color: var(--color-texto-claro);
     color: var(--color-fondo-principal);
-    color: white;
     padding: 0.75rem;
     font-size: 1rem;
-    border: none;
     cursor: pointer;
     transition: background 0.3s ease;
     box-sizing: border-box;
