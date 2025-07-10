@@ -1,28 +1,36 @@
+/* ========= VARIABLES GLOBALES DE DISEÑO ========= */
+:root {
+    /* --- Paleta de Colores --- */
+    --color-fondo-principal: rgb(96, 20, 6);
+    --color-texto-claro: rgb(234, 228, 204);
+    --color-texto-oscuro: #333;
+    --color-blanco-puro: #fff;
+    --color-negro-transparente: rgba(0, 0, 0, 0.4);
+    --color-blanco-transparente: rgba(255, 255, 255, 0.75);
+
+    /* --- Tipografías --- */
+    --fuente-titulos-serif: 'Cormorant Garamond', serif;
+    --fuente-parrafos-sans: 'Lato', sans-serif;
+    --fuente-decorativa-script: 'Great Vibes', cursive;
+}
+
 /* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
 html {
-    scroll-behavior: smooth; /* Opcional: para que el scroll sea suave */
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
-    font-family: 'Cormorant Garamond', serif;
-    background-color: #3b1d1a;
-    color: #fdf5e6; /* Un color blanco roto para el texto general */
-
-    /* --- CONFIGURACIÓN DE SCROLL SNAP --- */
-    /* Habilita el scroll snap en el eje vertical (y) */
-    scroll-snap-type: y mandatory; 
-    /* Necesitamos que el body pueda hacer scroll */
+    font-family: var(--fuente-titulos-serif); /* Fuente por defecto */
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
 }
 
-/* Clase genérica que tendrán TODAS las secciones para ocupar
-  la pantalla completa y alinearse con el scroll snap.
-*/
 .full-screen-section {
-    /* CAMBIO: De height a min-height */
-    min-height: 100vh; /* Ahora es una altura MÍNIMA, puede crecer */
+    min-height: 100vh;
     width: 100%;
     scroll-snap-align: start;
     position: relative;
@@ -32,18 +40,14 @@ body {
     box-sizing: border-box;
 }
 
-
-/* ========= SECCIÓN 1: CABECERA (CORREGIDO) ========= */
+/* ========= SECCIÓN 1: BIENVENIDA ========= */
 .hero {
-    /* Las propiedades de tamaño y display ahora las coge de '.full-screen-section' */
     background-image: url('assets/imagenes/flores_1.jpeg');
     background-size: cover;
     background-position: center center;
     text-align: center;
-    color: #333;
+    color: var(--color-texto-oscuro);
 }
-
-/* El resto del código de la sección 1 se mantiene igual... */
 
 .hero::before {
     content: '';
@@ -52,56 +56,84 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.75); 
+    background-color: var(--color-blanco-transparente);
 }
 
-/* CAMBIO: Capa semitransparente CLARA sobre la imagen */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* CAMBIO: Fondo blanco con 75% de opacidad. Puedes ajustar el 0.75 */
-    background-color: rgba(255, 255, 255, 0.75); 
-}
-
-/* Contenedor del texto principal (sin cambios) */
 .hero-content {
     position: relative;
     z-index: 1;
 }
 
-/* Estilo para "Sandra & Alex" (sin cambios) */
 .hero-content h1 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--fuente-titulos-serif);
     font-size: 5rem;
     font-weight: 400;
     margin: 0;
     line-height: 1;
 }
 
-/* Estilo para "are getting married" (sin cambios) */
 .hero-content p {
-    font-family: 'Great Vibes', cursive;
+    font-family: var(--fuente-decorativa-script);
     font-size: 2.5rem;
     margin: 0;
 }
 
-/* Estilo para el hashtag #S&A */
 .hashtag {
     position: absolute;
-    bottom: 30px; /* Un poco más de espacio desde abajo */
-    right: 40px;  /* Un poco más de espacio desde la derecha */
-    font-family: 'Cormorant Garamond', serif;
-    /* CAMBIO: Tamaño de fuente aumentado */
-    font-size: 2.2rem; 
+    bottom: 30px;
+    right: 40px;
+    font-family: var(--fuente-titulos-serif);
+    font-size: 2.2rem;
     font-weight: 700;
     z-index: 1;
 }
 
-/* ---- Media Queries para Móviles ---- */
+/* ========= SECCIÓN 2: ¡NOS CASAMOS! ========= */
+#nos-casamos {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    padding: 8vh 0;
+}
+
+.nos-casamos-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 40px;
+}
+
+.text-content {
+    flex-basis: 55%;
+}
+
+#nos-casamos h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 0.9;
+    margin-bottom: 25px;
+}
+
+#nos-casamos p {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.image-content {
+    flex-basis: 45%;
+}
+
+.image-content img {
+    width: 100%;
+    display: block;
+    filter: grayscale(100%);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ========= MEDIA QUERIES PARA MÓVILES ========= */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 3.5rem;
@@ -112,80 +144,21 @@ body {
     }
 
     .hashtag {
-        /* CAMBIO: Tamaño ajustado también para móvil */
         font-size: 1.8rem;
         bottom: 20px;
         right: 20px;
     }
-}
 
-
-/* ========= SECCIÓN 2: ¡NOS CASAMOS! (CORREGIDO) ========= */
-#nos-casamos {
-    background-color: rgb(96, 20, 6);
-    color: rgb(234, 228, 204);
-    
-    /* CAMBIO: Padding simétrico arriba y abajo */
-    padding: 8vh 0; /* 8vh de padding vertical, 0 horizontal */
-}
-
-/* Contenedor principal para las dos columnas */
-.nos-casamos-container {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 40px; /* Mantenemos el padding lateral aquí */
-}
-
-/* Columna de texto */
-.text-content {
-    flex-basis: 55%;
-}
-
-/* El h2 se mantiene con la tipografía serif original */
-#nos-casamos h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 0.9;
-    margin-bottom: 25px;
-}
-
-/* CAMBIO: Tipografía para los párrafos */
-#nos-casamos p {
-    font-family: 'Lato', sans-serif; /* Usamos la nueva fuente sans-serif */
-    font-size: 1.1rem;
-    line-height: 1.7; /* Un poco más de espacio para mejorar la lectura */
-}
-
-/* Columna de imagen */
-.image-content {
-    flex-basis: 45%;
-}
-
-.image-content img {
-    width: 100%;
-    display: block;
-    filter: grayscale(100%);
-    
-    /* CAMBIO: Se elimina el borde blanco */
-    /* border: 8px solid white; */
-
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Media Queries para Móviles (sin cambios importantes) */
-@media (max-width: 768px) {
     #nos-casamos {
-        padding: 10vh 0; /* Ajustamos el padding para móvil */
+        padding: 10vh 0;
     }
+
     .nos-casamos-container {
         flex-direction: column;
         text-align: center;
         gap: 30px;
     }
+
     #nos-casamos h2 {
         font-size: 3rem;
     }
