@@ -286,7 +286,7 @@ body {
 .info-container {
     width: 100%;
     max-width: 1100px;
-    padding: 0 40px;
+    margin: 0 40px;
     text-align: center;
 }
 
@@ -301,7 +301,7 @@ body {
 .subtitulo {
     font-family: var(--fuente-decorativa-script);
     font-size: 1.8rem;
-    margin-bottom: 60px; /* Un poco más de espacio aquí también */
+    margin: 10px 0 60px 0;
 }
 
 .info-columnas {
@@ -321,7 +321,7 @@ body {
 
 .info-columna img {
     /* CAMBIO: Aumentamos la altura de los iconos para que sean más grandes */
-    height: 140px;
+    height: 170px;
     margin-bottom: 25px;
 }
 
