@@ -21,14 +21,15 @@ body {
   la pantalla completa y alinearse con el scroll snap.
 */
 .full-screen-section {
-    height: 100vh;
+    /* CAMBIO: De height a min-height */
+    min-height: 100vh; /* Ahora es una altura MÍNIMA, puede crecer */
     width: 100%;
-    scroll-snap-align: start; /* Alinea el inicio de la sección con el viewport */
+    scroll-snap-align: start;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box; /* Para que el padding no afecte al tamaño total */
+    box-sizing: border-box;
 }
 
 
@@ -119,75 +120,72 @@ body {
 }
 
 
-/* ========= SECCIÓN 2: ¡NOS CASAMOS! ========= */
+/* ========= SECCIÓN 2: ¡NOS CASAMOS! (CORREGIDO) ========= */
 #nos-casamos {
-    /* Colores especificados */
     background-color: rgb(96, 20, 6);
     color: rgb(234, 228, 204);
     
-    /* Para alinear el contenido arriba en lugar de al centro en móvil */
-    align-items: flex-start;
-    padding-top: 5vh; /* Pequeño margen superior */
+    /* CAMBIO: Padding simétrico arriba y abajo */
+    padding: 8vh 0; /* 8vh de padding vertical, 0 horizontal */
 }
 
 /* Contenedor principal para las dos columnas */
 .nos-casamos-container {
     display: flex;
-    align-items: center; /* Centra verticalmente las columnas */
-    gap: 50px; /* Espacio entre el texto y la imagen */
+    align-items: center;
+    gap: 50px;
     width: 100%;
-    max-width: 1100px; /* Ancho máximo del contenido */
-    padding: 0 40px; /* Espaciado lateral */
+    max-width: 1100px;
+    padding: 0 40px; /* Mantenemos el padding lateral aquí */
 }
 
 /* Columna de texto */
 .text-content {
-    flex-basis: 55%; /* La columna de texto ocupa el 55% del espacio */
+    flex-basis: 55%;
 }
 
+/* El h2 se mantiene con la tipografía serif original */
 #nos-casamos h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     font-weight: 700;
-    line-height: 0.9; /* Reduce el espacio entre "NOS" y "CASAMOS" */
+    line-height: 0.9;
     margin-bottom: 25px;
 }
 
+/* CAMBIO: Tipografía para los párrafos */
 #nos-casamos p {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Lato', sans-serif; /* Usamos la nueva fuente sans-serif */
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7; /* Un poco más de espacio para mejorar la lectura */
 }
 
 /* Columna de imagen */
 .image-content {
-    flex-basis: 45%; /* La columna de imagen ocupa el 45% */
+    flex-basis: 45%;
 }
 
 .image-content img {
-    width: 100%; /* La imagen se ajusta a su contenedor */
+    width: 100%;
     display: block;
+    filter: grayscale(100%);
     
-    /* Estilos para que parezca de la captura */
-    filter: grayscale(100%); /* Efecto blanco y negro */
-    border: 8px solid white;
+    /* CAMBIO: Se elimina el borde blanco */
+    /* border: 8px solid white; */
+
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ---- Media Queries para Móviles ---- */
+/* Media Queries para Móviles (sin cambios importantes) */
 @media (max-width: 768px) {
     #nos-casamos {
-        /* En móvil, permitimos scroll si el contenido es muy largo */
-        overflow-y: auto; 
-        padding-top: 10vh; /* Más espacio superior en móvil */
+        padding: 10vh 0; /* Ajustamos el padding para móvil */
     }
-
     .nos-casamos-container {
-        flex-direction: column; /* Apila las columnas una sobre otra */
+        flex-direction: column;
         text-align: center;
         gap: 30px;
     }
-
     #nos-casamos h2 {
         font-size: 3rem;
     }
