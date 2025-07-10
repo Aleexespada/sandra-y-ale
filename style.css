@@ -12,6 +12,11 @@
     --fuente-titulos-serif: 'Cormorant Garamond', serif;
     --fuente-parrafos-sans: 'Lato', sans-serif;
     --fuente-decorativa-script: 'Great Vibes', cursive;
+
+    /* --- Tamaño tipografías --- */
+    --size-titulos: 3rem;
+    --size-subtitulos: 2rem;
+    --size-text: 1rem;
 }
 
 /* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
@@ -26,11 +31,12 @@ body {
     color: var(--color-texto-claro);
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-    height: 100vh;
+    /*height: 100vh;*/
+    padding: 0 10px;
 }
 
 .full-screen-section {
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     width: 100%;
     scroll-snap-align: start;
     position: relative;
@@ -74,7 +80,7 @@ body {
 
 .hero-content p {
     font-family: var(--fuente-decorativa-script);
-    font-size: 2.5rem;
+    font-size: var(--size-text);
     margin: 0;
 }
 
@@ -116,7 +122,7 @@ body {
 
 #nos-casamos h2 {
     font-family: var(--fuente-titulos-serif);
-    font-size: 4rem;
+    font-size: var(--size-titulos);
     font-weight: 700;
     line-height: 0.9;
     margin-bottom: 25px;
@@ -124,7 +130,7 @@ body {
 
 #nos-casamos p {
     font-family: var(--fuente-parrafos-sans);
-    font-size: 1.1rem;
+    font-size: var(--size-text);
     line-height: 1.7;
 }
 
@@ -143,10 +149,6 @@ body {
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 3.5rem;
-    }
-
-    .hero-content p {
-        font-size: 2rem;
     }
 
     .hero {
@@ -170,10 +172,6 @@ body {
         text-align: center;
         gap: 30px;
     }
-
-    #nos-casamos h2 {
-        font-size: 3rem;
-    }
 }
 
 /* ========= SECCIÓN 3: NUESTRA BODA (CORREGIDO) ========= */
@@ -192,7 +190,7 @@ body {
 
 #nuestra-boda h2 {
     font-family: var(--fuente-titulos-serif);
-    font-size: 3rem;
+    font-size: var(--size-titulos);
     font-weight: 700;
     margin-bottom: 40px;
     letter-spacing: 2px;
@@ -290,7 +288,7 @@ body {
 
 #informacion h2 {
     font-family: var(--fuente-titulos-serif);
-    font-size: 3rem;
+    font-size: var(--size-titulos);
     font-weight: 700;
     margin: 0;
     letter-spacing: 2px;
@@ -299,7 +297,7 @@ body {
 
 .subtitulo {
     font-family: var(--fuente-decorativa-script);
-    font-size: 1.8rem;
+    font-size: var(--size-subtitulos);
     margin: 7px 0 60px 0;
 }
 
@@ -333,7 +331,7 @@ body {
 .info-columna p {
     font-family: var(--fuente-parrafos-sans);
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: var(--size-text);
     padding: 0 4px!important;
 }
 
@@ -345,12 +343,8 @@ body {
         gap: 50px; /* Aumentamos el espacio entre ellas */
     }
 
-    #informacion h2 {
-        font-size: 2.5rem;
-    }
-
     .subtitulo {
-        font-size: 1.5rem;
+        font-size: var(--size-subtitulos);
         margin-bottom: 40px;
     }
 }
@@ -370,7 +364,7 @@ body {
 
 #evento h2 {
     font-family: var(--fuente-titulos-serif);
-    font-size: 3rem;
+    font-size: var(--size-titulos);
     font-weight: 700;
     margin-bottom: 30px;
     letter-spacing: 2px;
@@ -414,10 +408,6 @@ body {
 @media (max-width: 768px) {
     /* ... reglas anteriores para móvil ... */
 
-    #evento h2 {
-        font-size: 2.5rem;
-    }
-
     .evento-fecha {
         text-align: center; /* En móvil, centramos la fecha */
         padding-left: 0;
@@ -445,7 +435,7 @@ body {
 
 #preguntas h2 {
     font-family: var(--fuente-titulos-serif);
-    font-size: 3rem;
+    font-size: var(--size-titulos);
     font-weight: 700;
     margin-bottom: 60px;
     letter-spacing: 2px;
@@ -467,7 +457,7 @@ body {
 
 .qa-item p {
     font-family: var(--fuente-parrafos-sans);
-    font-size: 1rem;
+    font-size: var(--size-text);
     line-height: 1.6;
     opacity: 0.9; /* Hacemos el texto de respuesta un poco más sutil */
 }
@@ -475,11 +465,85 @@ body {
 @media (max-width: 768px) {
 /* ... reglas anteriores para móvil ... */
 
-    #preguntas h2 {
-        font-size: 2.5rem;
+    .qa-item h3 {
+        font-size: 2rem;
+    }
+}
+
+/* ========= SECCIÓN 7: CONTACTO ========= */
+#contacto {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-claro);
+    flex-direction: column;
+    padding: 15vh 0;
+}
+
+.contacto-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 40px;
+    text-align: center;
+}
+
+#contacto h2 {
+    font-family: var(--fuente-titulos-serif);
+    font-size: var(--size-titulos);
+    font-weight: 400; /* Un peso más fino como en la imagen */
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.detalles-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+
+.detalle-item h3 {
+    font-family: var(--fuente-decorativa-script);
+    font-size: 2.2rem;
+    margin: 0 0 10px 0;
+}
+
+.detalle-item p,
+.detalle-item p a {
+    font-family: var(--fuente-parrafos-sans);
+    font-size: var(--size-text);
+    line-height: 1.6;
+    opacity: 0.9;
+    color: inherit; /* Hereda el color del texto */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* Estilo del botón para confirmar asistencia */
+.boton-asistencia {
+    display: inline-block; /* Para que respete el padding */
+    border: 1px solid var(--color-texto-claro);
+    padding: 15px 30px;
+    font-family: var(--fuente-titulos-serif);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    transition: all 0.3s ease; /* Transición suave para el hover */
+}
+
+.boton-asistencia:hover {
+    background-color: var(--color-texto-claro);
+    color: var(--color-fondo-principal);
+}
+
+@media (max-width: 768px) {
+    /* ... reglas anteriores para móvil ... */
+
+    .detalles-contacto {
+        flex-direction: column; /* Apila los detalles en móvil */
+        gap: 40px;
     }
 
-    .qa-item h3 {
+    .detalle-item h3 {
         font-size: 2rem;
     }
 }
