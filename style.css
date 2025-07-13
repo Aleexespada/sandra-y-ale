@@ -17,6 +17,7 @@
     --size-titulos: 3rem;
     --size-subtitulos: 2rem;
     --size-text: 1rem;
+    --size-text-2: 0.7rem;
 }
 
 /* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
@@ -81,7 +82,7 @@ body {
 
 .hero-content p {
     font-family: var(--fuente-decorativa-script);
-    font-size: var(--size-text);
+    font-size: var(--size-titulos);
     margin: 0;
 }
 
@@ -131,7 +132,7 @@ body {
 
 #nos-casamos p {
     font-family: var(--fuente-parrafos-sans);
-    font-size: var(--size-text);
+    font-size: var(--size-text-2);
     line-height: 1.7;
 }
 
@@ -453,7 +454,7 @@ body {
 
 .qa-item p {
     font-family: var(--fuente-parrafos-sans);
-    font-size: var(--size-text);
+    font-size: var(--size-text-2);
     line-height: 1.6;
     opacity: 0.9; /* Hacemos el texto de respuesta un poco más sutil */
 }
