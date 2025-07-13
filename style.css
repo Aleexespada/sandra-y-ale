@@ -36,14 +36,21 @@ body {
 }
 
 .full-screen-section {
-    /*min-height: 100vh;*/
-    width: 100%;
+    /* CAMBIO: Usamos 100svh para que la altura se ajuste a la interfaz del navegador */
+    min-height: 100svh;
+    width: 100vw;
+
+    /* Necesario para que el padding no aumente el tamaño total */
+    box-sizing: border-box;
+
+    /* CAMBIO: Añadimos un padding que respeta las áreas seguras del dispositivo (botones, notch, etc.) */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
     scroll-snap-align: start;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
 /* ========= SECCIÓN 1: BIENVENIDA ========= */
