@@ -17,7 +17,7 @@
     --size-titulos: 3rem;
     --size-subtitulos: 2rem;
     --size-text: 1rem;
-    --size-text-2: 0.7rem;
+    --size-text-2: 0.85rem;
 }
 
 /* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
@@ -82,7 +82,7 @@ body {
 
 .hero-content p {
     font-family: var(--fuente-decorativa-script);
-    font-size: var(--size-titulos);
+    font-size: var(--size-subtitulos);
     margin: 0;
 }
 
