@@ -33,11 +33,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
     text-align: center;
+    
+    /* CAMBIO: Usamos 100svh para que la altura se ajuste a la interfaz del navegador */
+    min-height: 100svh;
+    width: 100vw;
+
+    /* Necesario para que el padding no aumente el tamaño total */
+    box-sizing: border-box;
+
+    /* CAMBIO: Añadimos un padding que respeta las áreas seguras del dispositivo (botones, notch, etc.) */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 .mensaje h1 {
