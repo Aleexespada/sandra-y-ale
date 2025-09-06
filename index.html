@@ -125,6 +125,20 @@
             asistenciaSelect.addEventListener("change", toggleCamposAdicionales);
             numHijosInput.addEventListener("input", generarCamposHijos);
 
+            // Limpiar el campo al hacer clic/tocar
+            numHijosInput.addEventListener("focus", function() {
+                if (this.value === "0") {
+                this.value = "";
+                }
+            });
+
+            // Restaurar el "0" si se deja el campo vacío
+            numHijosInput.addEventListener("blur", function() {
+                if (this.value.trim() === "") {
+                this.value = "0";
+                }
+            });
+
             // Manejo del envío del formulario con el spinner
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
