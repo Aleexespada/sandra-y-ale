@@ -10,14 +10,19 @@
 
     /* --- Tipografías --- */
     --fuente-titulos-serif: 'Cormorant Garamond', serif;
+    --fuente-parrafos-sans: 'Lato', sans-serif;
+    --fuente-decorativa-script: 'Great Vibes', cursive;
+
+    /* --- Tipografías --- */
+   /* --fuente-titulos-serif: 'Cormorant Garamond', serif;
     --fuente-parrafos-sans: 'Plus Jakarta Sans', 'Lato', sans-serif;
-    --fuente-decorativa-script: 'Pinyon Script', 'Great Vibes', cursive;
+    --fuente-decorativa-script: 'Pinyon Script', 'Great Vibes', cursive;*/
+
 
     /* --- Tamaño tipografías --- */
     --size-titulos: 3rem;
     --size-subtitulos: 2rem;
     --size-text: 1rem;
-    --size-text-2: 0.85rem;
 }
 
 /* ========= ESTILOS GENERALES Y SCROLL SNAP ========= */
@@ -33,516 +38,106 @@ body {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     /*height: 100vh;*/
+    padding: 0 10px;
 }
 
-.full-screen-section {
-    /* CAMBIO: Usamos 100svh para que la altura se ajuste a la interfaz del navegador */
-    min-height: 100svh;
-    width: 100vw;
-
-    /* Necesario para que el padding no aumente el tamaño total */
-    box-sizing: border-box;
-
-    /* CAMBIO: Añadimos un padding que respeta las áreas seguras del dispositivo (botones, notch, etc.) */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-
-    scroll-snap-align: start;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ========= SECCIÓN 1: BIENVENIDA ========= */
-.hero {
-    background-image: url('assets/imagenes/flores_1.jpeg');
-    background-size: cover;
-    background-position: center center;
-    text-align: center;
-    color: var(--color-texto-oscuro);
-    width: 100%;
-    height: 100vh;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-blanco-transparente);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-content h1 {
-    font-family: var(--fuente-titulos-serif);
-    font-size: 5rem;
-    font-weight: 400;
-    margin: 0;
-    line-height: 1;
-}
-
-.hero-content p {
-    font-family: var(--fuente-decorativa-script);
-    font-size: var(--size-subtitulos);
-    margin: 0;
-}
-
-.hashtag {
-    position: absolute;
-    font-family: var(--fuente-titulos-serif);
-    font-size: 2.2rem;
-    font-weight: 700;
-    z-index: 1;
-
-    /* CAMBIO: Posicionamiento inteligente con áreas seguras */
-    right: 40px;
-    
-    /* Fallback para navegadores antiguos */
-    bottom: 30px; 
-    
-    /* Le decimos que a los 30px de base, le sume el alto de la barra de navegación */
-    bottom: calc(30px + env(safe-area-inset-bottom));
-}
-
-/* ========= SECCIÓN 2: ¡NOS CASAMOS! ========= */
-#nos-casamos {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
-    padding: 8vh 10px;
-}
-
-.nos-casamos-container {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    max-width: 1100px;
-}
-
-.text-content {
-    flex-basis: 55%;
-}
-
-#nos-casamos h2 {
-    font-family: var(--fuente-titulos-serif);
-    font-size: var(--size-titulos);
-    font-weight: 700;
-    line-height: 0.9;
-    margin-bottom: 25px;
-}
-
-#nos-casamos p {
-    font-family: var(--fuente-parrafos-sans);
-    font-size: var(--size-text-2);
-    line-height: 1.7;
-}
-
-.image-content {
-    flex-basis: 45%;
-}
-
-.image-content img {
-    width: 100%;
-    display: block;
-    filter: grayscale(100%);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* ========= MEDIA QUERIES PARA MÓVILES ========= */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero {
-        padding: 20px 20px 90px 20px; /* 90px de espacio en la parte inferior */
-    }
-
-    .hashtag {
-        font-size: 1.8rem;
-        
-        /* CAMBIO: Posicionamiento simple dentro del nuevo espacio seguro */
-        right: 30px;
-        bottom: 40px; /* 40px desde el nuevo borde con padding */
-    }
-
-    .nos-casamos-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-}
-
-/* ========= SECCIÓN 3: NUESTRA BODA (CORREGIDO) ========= */
-#nuestra-boda {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
-    flex-direction: column;
-    padding: 8vh 10px;
-}
-
-.boda-container {
-    width: 100%;
-    max-width: 1100px;
-    text-align: center;
-}
-
-#nuestra-boda h2 {
-    font-family: var(--fuente-titulos-serif);
-    font-size: var(--size-titulos);
-    font-weight: 700;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-}
-
-.boda-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
-
-/* Contenedor del icono */
-.boda-icono {
-    flex-basis: 40%;
-    max-width: 280px; /* Ajustamos un poco el tamaño máximo */
-}
-
-/* CAMBIO: Eliminamos la regla para SVG y nos aseguramos que la imagen se ajuste */
-.boda-icono img {
-    width: 100%;
-    height: auto;
-}
-
-/* Lista de información */
-.boda-info {
-    flex-basis: 60%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.form-group {
+    margin-bottom: 1.5rem;
     text-align: left;
 }
 
-/* CAMBIO: Cada elemento de la lista ahora es un contenedor flex */
-.boda-info li {
-    display: flex;
-    flex-direction: column; /* Apila el título y el detalle */
-    margin-bottom: 30px;
-}
-
-/* CAMBIO: Estilo para el título de cada elemento de la lista */
-.info-titulo {
-    font-family: var(--fuente-decorativa-script);
-    font-size: 2.5rem;
-    line-height: 1.1;
-}
-
-/* CAMBIO: Estilo para el texto de detalle */
-.info-detalle {
-    font-family: var(--fuente-parrafos-sans);
-    font-size: 1rem;
-    margin-top: 5px; /* Pequeño espacio entre título y detalle */
-}
-
-/* ---- Ajustes para esta sección en móvil ---- */
-/* Añade esto DENTRO de tu bloque @media (max-width: 768px) */
-
-@media (max-width: 768px) {
-    /* ... reglas anteriores para móvil ... */
-    
-    .boda-content {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .boda-info {
-        text-align: center;
-        width: 100%;
-    }
-
-    /* CAMBIO: Centramos el contenido de cada 'li' en móvil */
-    .boda-info li {
-        align-items: center;
-    }
-
-    .info-titulo {
-        font-size: 2.2rem;
-    }
-}
-
-/* ========= SECCIÓN 4: INFORMACIÓN (CORREGIDO) ========= */
-#informacion {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
-    flex-direction: column;
-    padding: 8vh 10px;
-}
-
-.info-container {
-    width: 100%;
-    max-width: 1100px;
+#form-section {
     text-align: center;
+
 }
 
-#informacion h2 {
+#form-section h2 {
     font-family: var(--fuente-titulos-serif);
     font-size: var(--size-titulos);
     font-weight: 700;
-    margin: 0;
-    letter-spacing: 2px;
-    padding: 0 8px;
-}
-
-.subtitulo {
-    font-family: var(--fuente-decorativa-script);
-    font-size: var(--size-subtitulos);
-    margin: 7px 0 60px 0;
-}
-
-.info-columnas {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    width: 100%;
-}
-
-.info-columna {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.info-columna img {
-    /* CAMBIO: Aumentamos la altura de los iconos para que sean más grandes */
-    height: 170px;
-    margin-bottom: 25px;
-}
-
-.info-columna h3 {
-    font-family: var(--fuente-decorativa-script);
-    font-size: 2rem;
-    margin: 0 0 10px 0;
-}
-
-.info-columna p {
-    font-family: var(--fuente-parrafos-sans);
-    font-size: 0.9rem;
-    line-height: var(--size-text);
-    padding: 0 4px!important;
-}
-
-@media (max-width: 768px) {
-/* ... reglas anteriores para móvil ... */
-
-    .info-columnas {
-        flex-direction: column; /* Apilamos las columnas en móvil */
-        gap: 50px; /* Aumentamos el espacio entre ellas */
-    }
-
-    .subtitulo {
-        font-size: var(--size-subtitulos);
-        margin-bottom: 40px;
-    }
-}
-
-/* ========= SECCIÓN 5: EL EVENTO ========= */
-#evento {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
-    flex-direction: column;
-    padding: 8vh 10px;
-}
-
-.evento-container {
-    width: 100%;
-    max-width: 800px;
-}
-
-#evento h2 {
-    font-family: var(--fuente-titulos-serif);
-    font-size: var(--size-titulos);
-    font-weight: 700;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-.evento-fecha {
-    font-family: var(--fuente-parrafos-sans);
-    font-size: 1.1rem;
-    text-align: left;
-    margin-bottom: 40px;
-    padding-left: 10%; /* Empuja la fecha un poco a la derecha */
-}
-
-/* Contenedor para el horario */
-.timeline {
-    width: 100%;
-    max-width: 500px; /* Ancho del bloque del horario */
-    margin: 0 auto; /* Centra el bloque del horario en el contenedor */
-}
-
-.timeline-item {
-    display: grid;
-    /* Dos columnas: la de la hora y la de la descripción */
-    grid-template-columns: 1fr 2fr;
-    gap: 20px; /* El espacio central que se alinea */
-    margin-bottom: 15px;
-    font-family: var(--fuente-parrafos-sans);
-    font-size: 1.1rem;
-}
-
-.timeline-hora {
-    font-weight: 700; /* Hora en negrita */
-    text-align: right; /* Alineamos la hora a la derecha */
-}
-
-.timeline-descripcion {
-    text-align: left; /* Alineamos la descripción a la izquierda */
-}
-
-@media (max-width: 768px) {
-    /* ... reglas anteriores para móvil ... */
-
-    .evento-fecha {
-        text-align: center; /* En móvil, centramos la fecha */
-        padding-left: 0;
-    }
-
-    .timeline-item {
-        /* Hacemos un poco más pequeña la letra en móvil */
-        font-size: 1rem;
-    }
-}
-
-/* ========= SECCIÓN 6: PREGUNTAS ========= */
-#preguntas {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
-    flex-direction: column;
-    padding: 8vh 10px;
-}
-
-.preguntas-container {
-    width: 100%;
-    max-width: 800px; /* Un poco más estrecho para facilitar la lectura */
-    text-align: center;
-}
-
-#preguntas h2 {
-    font-family: var(--fuente-titulos-serif);
-    font-size: var(--size-titulos);
-    font-weight: 700;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
 }
 
-.qa-item {
-    margin-bottom: 40px; /* Espacio entre cada pregunta y respuesta */
-}
-
-.qa-item:last-child {
-    margin-bottom: 0; /* Quitamos el margen a la última pregunta */
-}
-
-.qa-item h3 {
-    font-family: var(--fuente-decorativa-script);
-    font-size: 2.2rem;
-    margin: 0 0 10px 0;
-}
-
-.qa-item p {
-    font-family: var(--fuente-parrafos-sans);
-    font-size: var(--size-text-2);
-    line-height: 1.6;
-    opacity: 0.9; /* Hacemos el texto de respuesta un poco más sutil */
-}
-
-@media (max-width: 768px) {
-/* ... reglas anteriores para móvil ... */
-
-    .qa-item h3 {
-        font-size: 2rem;
-    }
-}
-
-/* ========= SECCIÓN 7: CONTACTO ========= */
-#contacto {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
-    flex-direction: column;
-    padding: 8vh 10px;
-}
-
-.contacto-container {
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
-}
-
-#contacto h2 {
-    font-family: var(--fuente-titulos-serif);
-    font-size: var(--size-titulos);
-    font-weight: 400; /* Un peso más fino como en la imagen */
-    margin-bottom: 60px;
-    letter-spacing: 2px;
-}
-
-.detalles-contacto {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-bottom: 60px;
-}
-
-.detalle-item h3 {
-    font-family: var(--fuente-decorativa-script);
-    font-size: 2.2rem;
-    margin: 0 0 10px 0;
-}
-
-.detalle-item p,
-.detalle-item p a {
+#form-section p {
     font-family: var(--fuente-parrafos-sans);
     font-size: var(--size-text);
-    line-height: 1.6;
-    opacity: 0.9;
-    color: inherit; /* Hereda el color del texto */
-    text-decoration: none; /* Sin subrayado */
+    line-height: var(--size-text);
 }
 
-/* Estilo del botón para confirmar asistencia */
-.boton-asistencia {
-    display: inline-block; /* Para que respete el padding */
-    border: 1px solid var(--color-texto-claro);
-    padding: 15px 30px;
-    font-family: var(--fuente-titulos-serif);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    text-align: left !important;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 0px);
+    padding: 0.5rem;
+    border: 1px solid var(--color-texto-oscuro);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: var(--color-texto-oscuro);
+    font-style: italic;
+}
+
+button {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: 3px solid var(--color-texto-claro);
     background-color: var(--color-texto-claro);
     color: var(--color-fondo-principal);
-    text-decoration: none;
-    transition: all 0.3s ease; /* Transición suave para el hover */
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+    font-family: var(--fuente-titulos-serif);
+    font-weight: 700;
 }
 
-@media (max-width: 768px) {
-    /* ... reglas anteriores para móvil ... */
+button:disabled {
+    cursor: not-allowed;
+}
 
-    .detalles-contacto {
-        flex-direction: column; /* Apila los detalles en móvil */
-        gap: 40px;
-    }
+.hidden {
+    display: none;
+}
 
-    .detalle-item h3 {
-        font-size: 2rem;
-    }
+button.loading .btn-text {
+    visibility: hidden;
+}
+
+.btn-spinner {
+    /* El spinner está oculto por defecto */
+    display: none;
+}
+
+button.loading .btn-spinner {
+    /* Cuando el botón carga, se muestra el spinner */
+    display: block; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -11.5px 0 0 -11.5px; /* Centrado perfecto (mitad de width/height + borde) */
+    
+    /* CAMBIO: Estilo del aro del spinner */
+    border: 3px solid var(--color-fondo-principal); /* Color del aro */
+    border-top-color: transparent; /* Este corte es el que da el efecto de giro */
+    border-radius: 50%; /* Lo convierte en un círculo */
+
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

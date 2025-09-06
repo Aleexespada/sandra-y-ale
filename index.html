@@ -14,186 +14,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 </head>
 <body>
-    <!-- SANDRA & ALEX -->
-    <section class="hero full-screen-section">
-        <div class="hero-content">
-            <h1>Sandra & Alex</h1>
-            <p>are getting married</p>
-        </div>
-        <span class="hashtag">#S&A</span>
+    <!-- FORMULARIO DE ASISTENCIA -->
+
+    <section id="form-section">
+        <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+        <p>Por favor, rellena el siguiente formulario para confirmar tu asistencia.</p>
+        <form action="https://formsubmit.co/alexespadap@gmail.com" method="POST" id="rsvp-form">
+            <div class="form-group">
+                <label for="nombreInvitado">Nombre y Apellidos</label>
+                <input type="text" id="nombreInvitado" name="nombreInvitado" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios">
+            </div>
+
+            <div class="form-group">
+                <label for="nombreAcompanante">Nombre y Apellido (Acompañante)</label>
+                <input type="text" id="nombreAcompanante" name="nombreAcompanante" placeholder="Rellenar solo si el acompañante no tiene invitación" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios">
+            </div>
+
+            <!--<div class="form-group">-->
+            <!--    <label for="direccion">Dirección</label>-->
+            <!--    <input type="text" id="direccion" name="direccion" required>-->
+            <!--</div>-->
+
+            <div class="form-group">
+                <label for="alergias">Intolerancias y alergias</label>
+                <input type="text" id="alergias" name="alergias" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]*" title="Solo letras y espacios">
+            </div>
+
+            <input type="hidden" name="sitio" value="boda-formulario">
+            <input type="hidden" name="_next" value="gracias.html"> # https://aleexespada.github.io/sandra-y-ale/gracias.html
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" id="submitBtn">
+                <span class="btn-text">Enviar</span>
+                <span class="btn-spinner"></span>
+            </button>
+
+        </form>
     </section>
 
-    <!-- NOS CASAMOS -->
-    <section id="nos-casamos" class="full-screen-section">
-        <div class="nos-casamos-container">
-            <div class="text-content">
-                <h2>¡NOS CASAMOS!</h2>
-                <p>
-                    Hay algo en diciembre que hace que todo se sienta más cerca.
-                </p>
-                <p>
-                    Tal vez es la luz, el silencio compartido, o ese deseo de estar rodeados de quienes más queremos.
-                </p>
-                <p>
-                    Diciembre nos recuerda lo esencial: el calor de una mirada, la calma de un abrazo, la paz de saber que estás justo donde debes estar. Porque el amor, el nuestro, también es eso: cercanía, calma, hogar.
-                </p>
-                <p>
-                    Queremos invitarte a ser parte de este momento tan especial, donde celebramos el amor, la vida y el comienzo de nuestra historia como familia.
-                </p>
-            </div>
+    <script>
+        function initializeAssistanceForm() {
+            const form = document.querySelector("#rsvp-form");
+            const btn = document.getElementById("submitBtn");
 
-            <div class="image-content">
-                <img src="assets/imagenes/flores_1.jpeg" alt="Manos entrelazadas">
-            </div>
-        </div>
-    </section>
+            if (form && btn) {
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    btn.disabled = true;
+                    btn.classList.add("loading");
 
-    <!-- NUESTRA BODA -->
-    <section id="nuestra-boda" class="full-screen-section">
-        <div class="boda-container">
-            <h2>NUESTRA BODA</h2>
-            <div class="boda-content">
-
-                <div class="boda-icono">
-                    <img src="assets/imagenes/silla.png" alt="Ilustración de una silla decorada con flores">
-                </div>
-
-                <ul class="boda-info">
-                    <li>
-                        <span class="info-titulo">Fecha y hora</span>
-                        <span class="info-detalle">6 de diciembre 2025</span>
-                        <span class="info-detalle">12:00 am</span>
-                    </li>
-                    <li>
-                        <span class="info-titulo">Lugar de ceremonia</span>
-                        <span class="info-detalle">Calle Rodríguez Marín, 2, Casco</span>
-                        <span class="info-detalle">Antiguo, 41003 Sevilla</span>
-                    </li>
-                    <li>
-                        <span class="info-titulo">Lugar de la celebración</span>
-                        <span class="info-detalle">Av. de la Salud, 38, 41014</span>
-                        <span class="info-detalle">Dos Hermanas, Sevilla</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- INFORMACIÓN-->
-     <section id="informacion" class="full-screen-section">
-        <div class="info-container">
-            <h2>INFORMACIÓN</h2>
-            <p class="subtitulo">del gran día</p>
-
-            <div class="info-columnas">
-                <div class="info-columna">
-                    <img src="assets/imagenes/info_1.png" alt="Icono de iglesia">
-                    <h3>Iglesia de San Ildefonso</h3>
-                    <p>
-                        Situada en el centro de Sevilla, cerca de la Alfalfa. Sabemos que puede ser difícil acceder por lo que aquí tienes la ubicación del parking más cercano.
-                    </p>
-                </div>
-
-                <div class="info-columna">
-                    <img src="assets/imagenes/info_2.png" alt="Icono de finca con fuente">
-                    <h3>Villanueva del Pítamo</h3>
-                    <p>
-                        Contaremos con parking privado y guardarropa, para que llegues con calma y disfrutes con total libertad.
-                    </p>
-                </div>
-
-                <div class="info-columna">
-                    <img src="assets/imagenes/info_3.png" alt="Icono de tarta de bodas">
-                    <h3>Catering</h3>
-                    <p>
-                        El menú incluye alternativas para personas con alergias, intolerancias y embarazadas. Si necesitas una atención particular, te agradeceríamos que nos lo hagas saber con antelación.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EL EVENTO -->
-     <section id="evento" class="full-screen-section">
-        <div class="evento-container">
-            <h2>EL EVENTO</h2>
-            <p class="evento-fecha">6 diciembre 2025</p>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <span class="timeline-hora">12:00 PM</span>
-                    <span class="timeline-descripcion">Ceremonia</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-hora">14:00 PM</span>
-                    <span class="timeline-descripcion">Cóctel de bienvenida</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-hora">16:00 PM</span>
-                    <span class="timeline-descripcion">Almuerzo</span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-hora">18:00 PM</span>
-                    <span class="timeline-descripcion">Baile y celebración</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREGUNTAS -->
-     <section id="preguntas" class="full-screen-section">
-        <div class="preguntas-container">
-            <h2>PREGUNTAS</h2>
-
-            <div class="qa-item">
-                <h3>¿Qué debo ponerme?</h3>
-                <p>
-                    Vestimenta formal, algo abrigada ya que por la noche pueden bajar bastante las temperaturas. Aún así, las instalaciones estarán preparadas en todo momento de la celebración. El uso del tocado no es obligatorio.
-                </p>
-            </div>
-
-            <div class="qa-item">
-                <h3>¿Pueden asistir niños?</h3>
-                <p>
-                    Claro que sí, la decisión solo depende de los papis. Nosotros nos encargaremos de conseguir que estén entretenidos durante el evento.
-                </p>
-            </div>
-
-            <div class="qa-item">
-                <h3>¿Qué debo llevar?</h3>
-                <p>
-                    Ganas de pasarlo bien y unos zapatos cómodos de repuesto para no perderte nada.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO -->
-     <section id="contacto" class="full-screen-section">
-        <div class="contacto-container">
-            <h2>CONTACTO</h2>
-            <div class="detalles-contacto">
-                <div class="detalle-item">
-                    <h3>Phone</h3>
-                    <p><a href="tel:+34691772945">(+34) 691 77 29 45</a></p>
-                    <p><a href="tel:+34691772945">(+34) 645 05 04 61</a></p>
-                </div>
-                <div class="detalle-item">
-                    <h3>Email</h3>
-                    <p><a href="mailto:casaespadamunoz@gmail.com">casaespadamunoz@gmail.com</a></p>
-                </div>
-            </div>
-
-            <a href="form.html" class="boton-asistencia">
-                Confirma tu asistencia ahora
-            </a>
-        </div>
-    </section>
-
-
+                    setTimeout(() => {
+                        form.submit();
+                    }, 1500);
+                });
+            }
+        }
+        initializeAssistanceForm();
+    </script>
 </body>
-</html>
