@@ -47,9 +47,9 @@ body {
   padding: 20px;
   border-radius: 8px;
   background-color: rgba(96, 20, 6, 0.5);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* MODIFICADO: Eliminar el box-shadow (sombra) */
+  box-shadow: none; 
   text-align: center;
-  /* MODIFICADO: Eliminar el borde de la caja padre */
   border: none;
 }
 
@@ -59,16 +59,17 @@ body {
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: 2px;
-  /* NUEVO: Asegurar que el h2 no se desborde */
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  /* MODIFICADO: Eliminar los guiones y ajustar el espaciado para pantallas pequeñas */
+  word-wrap: normal; /* Asegura que no haya saltos de palabra forzados */
+  overflow-wrap: normal; /* Asegura que no haya saltos de palabra forzados */
+  hyphens: manual; /* Evita que se añadan guiones automáticamente */
 }
 
-/* NUEVO: Media query para ajustar el tamaño de fuente en pantallas pequeñas */
+/* MODIFICADO: Media query para ajustar el tamaño de fuente en pantallas pequeñas */
 @media (max-width: 600px) {
   #form-section h2 {
-    font-size: 2.5rem; /* O el tamaño que consideres adecuado */
+    font-size: 2.2rem; /* Tamaño de fuente ligeramente más pequeño para evitar desbordamiento */
+    letter-spacing: 1px; /* Ajustar el espaciado de letras si es necesario */
   }
 }
 
@@ -85,7 +86,6 @@ body {
   text-align: left;
 }
 
-/* NUEVO: Estilo para los inputs de los hijos */
 .hijo-group {
   margin-bottom: 1.5rem;
 }
@@ -111,15 +111,17 @@ select {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid var(--color-borde-form);
-  /* MODIFICADO: Fondo con transparencia y borde sutil */
   background-color: var(--color-fondo-input);
   color: var(--color-texto-claro);
   font-size: 1rem;
   box-sizing: border-box;
   font-family: var(--fuente-parrafos-sans);
   transition: border-color 0.3s ease, background-color 0.3s ease;
-  /* NUEVO: Bordes redondeados sutiles */
   border-radius: 5px;
+
+  /* NUEVO: Estilos para evitar el cambio de fondo con el autocompletado */
+  -webkit-box-shadow: 0 0 0 30px var(--color-fondo-input) inset !important;
+  -webkit-text-fill-color: var(--color-texto-claro) !important;
 }
 
 input[type="text"]:focus,
@@ -147,6 +149,9 @@ select option {
   background-color: var(--color-texto-claro);
 }
 
+.hidden {
+  display: none;
+}
 
 /* --- Estilos para el botón --- */
 button {
@@ -164,6 +169,7 @@ button {
   font-family: var(--fuente-titulos-serif);
   font-weight: 700;
   margin-top: 1.5rem;
+  border-radius: 5px; /* NUEVO: Bordes redondeados también para el botón */
 }
 
 button:hover {
@@ -175,10 +181,6 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.7;
   transform: none;
-}
-
-.hidden {
-  display: none;
 }
 
 /* --- Estilos del spinner --- */
