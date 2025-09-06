@@ -14,6 +14,8 @@
   
   /* NUEVO: Color de fondo para inputs/selects */
   --color-fondo-input: rgba(255, 255, 255, 0.05);
+  /* NUEVO: Color del autocompletado */
+  --color-autofill: #601406;
 
   /* --- Tipografías --- */
   --fuente-titulos-serif: 'Cormorant Garamond', serif;
@@ -47,7 +49,6 @@ body {
   padding: 20px;
   border-radius: 8px;
   background-color: rgba(96, 20, 6, 0.5);
-  /* MODIFICADO: Eliminar el box-shadow (sombra) */
   box-shadow: none; 
   text-align: center;
   border: none;
@@ -59,17 +60,15 @@ body {
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: 2px;
-  /* MODIFICADO: Eliminar los guiones y ajustar el espaciado para pantallas pequeñas */
-  word-wrap: normal; /* Asegura que no haya saltos de palabra forzados */
-  overflow-wrap: normal; /* Asegura que no haya saltos de palabra forzados */
-  hyphens: manual; /* Evita que se añadan guiones automáticamente */
+  word-wrap: normal;
+  overflow-wrap: normal;
+  hyphens: manual;
 }
 
-/* MODIFICADO: Media query para ajustar el tamaño de fuente en pantallas pequeñas */
 @media (max-width: 600px) {
   #form-section h2 {
-    font-size: 2.2rem; /* Tamaño de fuente ligeramente más pequeño para evitar desbordamiento */
-    letter-spacing: 1px; /* Ajustar el espaciado de letras si es necesario */
+    font-size: 2.2rem;
+    letter-spacing: 1px;
   }
 }
 
@@ -119,17 +118,25 @@ select {
   transition: border-color 0.3s ease, background-color 0.3s ease;
   border-radius: 5px;
 
-  /* NUEVO: Estilos para evitar el cambio de fondo con el autocompletado */
+  /* MODIFICADO: Estilos para el autocompletado */
   -webkit-box-shadow: 0 0 0 30px var(--color-fondo-input) inset !important;
+  -webkit-text-fill-color: var(--color-texto-claro) !important;
+  /* NUEVO: Estilos específicos para el autocompletado en navegadores que lo soportan */
+  -webkit-box-shadow: 0 0 0 100px var(--color-fondo-principal) inset;
+}
+
+/* MODIFICADO: Estilos para el autocompletado de autofill en inputs, si no funciona el anterior */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-autofill) inset !important;
+  -webkit-text-fill-color: var(--color-texto-claro) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-autofill) inset !important;
   -webkit-text-fill-color: var(--color-texto-claro) !important;
 }
 
-input[type="text"]:focus,
-input[type="tel"]:focus,
-select:focus {
-  outline: none;
-  border-color: var(--color-borde-foco);
-}
 
 input::placeholder {
   color: var(--color-placeholder);
@@ -169,7 +176,7 @@ button {
   font-family: var(--fuente-titulos-serif);
   font-weight: 700;
   margin-top: 1.5rem;
-  border-radius: 5px; /* NUEVO: Bordes redondeados también para el botón */
+  border-radius: 5px;
 }
 
 button:hover {
