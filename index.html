@@ -5,75 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra & Alex - Nuestra Boda</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
 </head>
 <body>
-    <!-- FORMULARIO DE ASISTENCIA -->
-
     <section id="form-section">
-        <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
-        <p>Por favor, rellena el siguiente formulario para confirmar tu asistencia.</p>
-        <form action="https://formsubmit.co/alexespadap@gmail.com" method="POST" id="rsvp-form">
+    <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+    <p>Por favor, rellena el siguiente formulario para confirmar tu asistencia.</p>
+    <form action="https://formsubmit.co/alexespadap@gmail.com" method="POST" id="rsvp-form">
+        
+        <div class="form-group">
+            <label for="nombreInvitado">Nombre y Apellidos*</label>
+            <input type="text" id="nombreInvitado" name="nombreInvitado" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios">
+        </div>
+        
+        <div class="form-group">
+            <label for="asistencia">¿Asistirás?*</label>
+            <select id="asistencia" name="asistencia" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Por supuesto">Por supuesto</option>
+                <option value="No puedo pero os envío todo mi cariño">No puedo pero os envío todo mi cariño</option>
+            </select>
+        </div>
+
+        <div id="camposAdicionales" class="hidden">
+            
             <div class="form-group">
-                <label for="nombreInvitado">Nombre y Apellidos</label>
-                <input type="text" id="nombreInvitado" name="nombreInvitado" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios">
+                <label for="nombreAcompanante">Nombre Acompañante</label>
+                <input type="text" id="nombreAcompanante" name="nombreAcompanante" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios">
             </div>
-
+            
             <div class="form-group">
-                <label for="nombreAcompanante">Nombre y Apellido (Acompañante)</label>
-                <input type="text" id="nombreAcompanante" name="nombreAcompanante" placeholder="Rellenar solo si el acompañante no tiene invitación" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios">
+                <label for="numHijos">Nº de hijos acompañantes</label>
+                <input type="tel" id="numHijos" name="numHijos" value="0" min="0" max="10">
             </div>
-
-            <!--<div class="form-group">-->
-            <!--    <label for="direccion">Dirección</label>-->
-            <!--    <input type="text" id="direccion" name="direccion" required>-->
-            <!--</div>-->
-
+            
+            <div id="hijosContainer"></div>
+            
             <div class="form-group">
                 <label for="alergias">Intolerancias y alergias</label>
                 <input type="text" id="alergias" name="alergias" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]*" title="Solo letras y espacios">
             </div>
-
-            <input type="hidden" name="sitio" value="boda-formulario">
-            <input type="hidden" name="_next" value="gracias.html"> # https://aleexespada.github.io/sandra-y-ale/gracias.html
-            <input type="hidden" name="_captcha" value="false">
-
-            <button type="submit" id="submitBtn">
-                <span class="btn-text">Enviar</span>
-                <span class="btn-spinner"></span>
-            </button>
-
-        </form>
+        </div>
+        
+        <input type="hidden" name="_subject" value="Confirmación de asistencia - Boda">
+        <input type="hidden" name="sitio" value="asistencia_boda">
+        <input type="hidden" name="_next" value="https://aleexespada.github.io/sandra-y-ale/gracias.html">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <button type="submit" id="submitBtn">
+            <span class="btn-text">Enviar</span>
+            <span class="btn-spinner"></span>
+        </button>
+    </form>
     </section>
 
     <script>
-        function initializeAssistanceForm() {
-            const form = document.querySelector("#rsvp-form");
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("rsvp-form");
             const btn = document.getElementById("submitBtn");
+            const asistenciaSelect = document.getElementById("asistencia");
+            const camposAdicionales = document.getElementById("camposAdicionales");
+            const numHijosInput = document.getElementById("numHijos");
+            const hijosContainer = document.getElementById("hijosContainer");
 
-            if (form && btn) {
-                form.addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    btn.disabled = true;
-                    btn.classList.add("loading");
-
-                    setTimeout(() => {
-                        form.submit();
-                    }, 1500);
-                });
+            function toggleCamposAdicionales() {
+                if (asistenciaSelect.value === "Por supuesto") {
+                    camposAdicionales.classList.remove("hidden");
+                    generarCamposHijos(); // Genera campos de hijos al mostrar la sección
+                } else {
+                    camposAdicionales.classList.add("hidden");
+                    hijosContainer.innerHTML = ""; // Limpia los campos de hijos
+                }
             }
-        }
-        initializeAssistanceForm();
+
+            function generarCamposHijos() {
+                const numHijos = parseInt(numHijosInput.value);
+                hijosContainer.innerHTML = ""; // Limpiar campos existentes
+
+                if (numHijos > 0) {
+                    for (let i = 1; i <= numHijos; i++) {
+                        const hijoDiv = document.createElement('div');
+                        hijoDiv.classList.add('hijo-group');
+
+                        // Campo de Nombre
+                        const nombreLabel = document.createElement('label');
+                        nombreLabel.textContent = `Nombre hij@ ${i}`;
+                        const nombreInput = document.createElement('input');
+                        nombreInput.type = 'text';
+                        nombreInput.name = `nombreHijo${i}`;
+                        nombreInput.required = true;
+
+                        // Campo de Edad
+                        const edadLabel = document.createElement('label');
+                        edadLabel.textContent = `Edad hij@ ${i}`;
+                        const edadInput = document.createElement('input');
+                        edadInput.type = 'tel'; // 'tel' para teclado numérico en móviles
+                        edadInput.name = `edadHijo${i}`;
+                        edadInput.min = "0";
+                        edadInput.required = true;
+
+                        hijoDiv.appendChild(nombreLabel);
+                        hijoDiv.appendChild(nombreInput);
+                        hijoDiv.appendChild(edadLabel);
+                        hijoDiv.appendChild(edadInput);
+                        hijosContainer.appendChild(hijoDiv);
+                    }
+                }
+            }
+
+            // Event listeners
+            asistenciaSelect.addEventListener("change", toggleCamposAdicionales);
+            numHijosInput.addEventListener("input", generarCamposHijos);
+
+            // Manejo del envío del formulario con el spinner
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                btn.disabled = true;
+                btn.classList.add("loading");
+                setTimeout(() => {
+                    form.submit();
+                }, 1500);
+            });
+        });
     </script>
 </body>
+</html>
