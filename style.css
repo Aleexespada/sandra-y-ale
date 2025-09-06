@@ -125,6 +125,14 @@ select {
   -webkit-box-shadow: 0 0 0 100px var(--color-fondo-principal) inset;
 }
 
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus {
+  outline: none; /* Elimina el contorno azul/negro por defecto */
+  border-color: var(--color-borde-foco); /* Mantiene el borde que ya habías definido */
+}
+
+
 /* MODIFICADO: Estilos para el autocompletado de autofill en inputs, si no funciona el anterior */
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px var(--color-autofill) inset !important;
